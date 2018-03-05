@@ -1,15 +1,11 @@
-#DEA1.0 - Differential  Expression analysis using Annocript
-# Author: Francesco Musacchia (2014)
+# DEA1.0 - Differential  Expression analysis using Annocript
+Author: Francesco Musacchia (2018)
 
-Mission
+**Mission**
 This software permits to execute differential expression analysis using many samples from RNA-seq experiment.
-It needs in input the files as they come from the count of reads which after mapping with transcripts. For
-example you could use Bowtie, STAR, etc to align your raw reads against a transcriptome and then SAMTOOLS
-to execute the count of reads.  
+It needs in input the files as they come from the count of reads which after mapping with transcripts. Forexample you could use Bowtie, STAR, etc to align your raw reads against a transcriptome and then SAMTOOLS to execute the count of reads.
 
-If you have N samples, then you should get N files with counts. Output file from samtools is one with a 
-column with the transcript name and count of reads aligning on it (3rd column). You can change the index
- of this column in CONFIGURATION/config_program.txt.
+If you have N samples, then you should get N files with counts. Output file from samtools is one with a column with the transcript name and count of reads aligning on it (3rd column). You can change the index of this column in CONFIGURATION/config_program.txt.
 
 Starting from the counts files, DEA0.1 permits to:
 - (A) merge the counts columns in a unique file
@@ -21,32 +17,32 @@ Starting from the counts files, DEA0.1 permits to:
 - (G) get the expression plots of differentially expressed GO terms
 
 
-#To use it you need:
+ To use it you need:
 
-#1. A target file with an header which is a list of samples with an experimental condition code associated with. Please use the same field names as in the following example:
-#Example:
-#		  name	condition
-#		SampleA1	A
-#		SampleA2	A
-#		SampleB1	B
-#		SampleB2	B
-#
-#2. A folder where you put all the counts files. The counts files should 
-#	have be named: sample_name.counts. sample_name should be the same as in the target file. 
-# i.e.: SampleA1.counts,SampleA2.counts,SampleB1.counts,SampleB2.counts
-#
-#3. A configuration file with all the parameters to use for the script (see the one included in DEA as
-an example).
-###OPTIONALLY
+1. A target file with an header which is a list of samples with an experimental condition code associated with. Please use the same field names as in the following example:
+Example:
+		  name	condition
+		SampleA1	A
+		SampleA2	A
+		SampleB1	B
+		SampleB2	B
+
+2. A folder where you put all the counts files. The counts files should 
+	have be named: sample_name.counts. sample_name should be the same as in the target file. 
+ i.e.: SampleA1.counts,SampleA2.counts,SampleB1.counts,SampleB2.counts
+
+3. A configuration file with all the parameters to use for the script (see the one included in DEA as an example).
+
+**OPTIONALLY**
 
 4. The filtered output from Annocript. Its usage is mandatory for E and G. Optionally you can use it
 when running C, in this case a file with the differentially expressed transcripts and few columns of
 annotation will be output.
 
 
-##############################################
-START WITH DEA
-##############################################
+
+# Start with DEA
+
 
 **Working folder configuration**
 
@@ -75,6 +71,7 @@ If the folders.txt file is not there DEA cannot work.
 
 
 **Run DEA**
+
 To run DEA you can directly call it with PERL console command. Three parameters are mandatory: --input_folder, --config_file and --target_file (read the first part of this README to understand their
 usage).
 To start more consecutive or single analyses use the user_config file. A copy of it (from CONFIGURATION folder) is created by the installation program in the working folder.
@@ -84,6 +81,7 @@ To start more consecutive or single analyses use the user_config file. A copy of
 To start with DEA you need the full fasta transcriptome assembled and the files with counts named as specified before. 
 If you want to get a filtered transcriptome to annotate you must use the first three parameters and
 the parameter --full_transcriptome= the path to the transcriptome created with the assembling program. 
+
 		SELECT : filter_transcriptome = YES
 
 The transcriptome is filtered by first computing the Count Per Million (CPM) value a
@@ -113,6 +111,7 @@ The followings are the constrains for a transcript to be defined as differential
 *Enrichment analysis*
 
 If you want to get the enrichment of GO terms and/or pathways you must give to DEA also the filtered Annocript output
+
 		SELECT: de_go_enrichments = YES
 			de_pw_enrichments = YES
 
