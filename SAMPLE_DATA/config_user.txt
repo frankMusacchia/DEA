@@ -1,0 +1,60 @@
+#File configuration for the user of GEPP 0.1
+
+# READ CAREFULLY!!!
+# This file has been written with a specific sintax. 
+# The variables MUST stay in the format: variable = value
+# A series of hashes (#########) closes the parameters to read
+# Parameters of BLAST programs without a value assigned will not be used
+# When you want to execute something you have to write YES (in upper case) or NO otherwise
+# other strings will give error.
+
+##############################
+#Organism name
+organism = cymodocea
+
+#What should do GEPP
+filter_transcriptome = NO
+de_analysis = NO
+get_up_down = NO
+de_go_enrichments = NO
+de_pw_enrichments = YES
+de_venn_diagram = NO
+extr_ph_expressed = NO
+extr_ph_specific = NO
+ph_enrichments = NO
+
+#Parameters for filter_transcriptome
+min_cpm = 1
+min_num_repl = 2
+
+#Parameters for de_analysis
+minFDR = 0.05
+
+#Parameters for de_enrichments
+p_val = 0.1
+#Minimum number of transcripts belonging to a GO class to make it enriched
+min_transcripts = 10
+#Minimum of transcripts evaluated respect to significant (sign) or overall (ann) transcripts
+min_respect_to = ann
+#number of enriched terms to plot
+topn_toplot = 15
+
+col_signifTable = 1
+# Indicate the fold the proportion of "diff" for a class should be higher than the universe to analyze it (def: 1)
+mult = 1
+# Indicate what kind of enrichment you are looking for in the "signifTable" table
+# To look for enrichments use 'g', for impoverishment use 'l', for both use 't'
+prop_alt = 'g'
+
+#Parameters for the Venn diagrams
+venn_chars_to_use = 10
+#the following parameter is fixed with the library we are using
+max_files_venn = 5
+
+#PROGRAMS
+get_counts_and_filter_sw = get_counts_and_filter.R
+de_analysis_sw = DE_analysis_generic.R
+go_enrichments_sw = GO_analysis_4.R
+pw_enrichments_sw = PW_analysis_1.R
+venn_diagrams_sw = venn_generic.R
+get_up_down_sw = get_up_and_down.R

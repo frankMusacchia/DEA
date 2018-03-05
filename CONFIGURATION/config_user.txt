@@ -1,0 +1,63 @@
+# File configuration for the user of DEA0.1
+
+# READ CAREFULLY!!!
+# This file has been written with a specific sintax. 
+# The variables MUST stay in the format: variable = value
+# A series of hashes (#########) closes the parameters to read
+# Parameters of BLAST programs without a value assigned will not be used
+# When you want to execute something you have to write YES (in upper case) or NO otherwise
+# other strings will give error.
+# Please read carefully the README.me file to get more information on how to use the 
+# tasks and their parameters
+##############################
+
+#Organism name 
+#(always set it uniquely for every future analysis with the same transcriptome)
+organism = chaetoceros
+
+#Parameters for filter_transcriptome
+filter_transcriptome = NO
+min_cpm = 1
+min_num_repl = 2
+
+#Parameters for the differential expression analysis
+de_analysis = YES
+minFDR = 0.05
+logFCThr = 2
+get_up_down = NO
+
+#Parameters for Pathways and GO enrichments
+#(read README.me for more informations)
+de_go_enrichments = NO
+de_pw_enrichments = NO
+p_val = 0.1
+min_transcripts = 10
+min_respect_to = ann
+topn_toplot = 15
+col_signifTable = 1
+mult = 1
+prop_alt = g
+
+#Venn diagrams of the differential expressed transcripts coming
+#from different analyses
+de_venn_diagram = NO
+venn_chars_to_use = 7
+max_files_venn = 5
+
+#These are not implemented...
+extr_ph_expressed = NO
+extr_ph_specific = NO
+ph_enrichments = NO
+
+#PLOTS
+#Parameters for Expression plots
+(If you want Expression plots to be print please use YES and
+- specify the Annocript output in input to the script (use --annocript_out)
+- specify the UniProt database used in the Annocript output (use: ann_out_db_used[uniref/trembl])
+- specify if GO terms should be associated to 'proteins' or 'domains'
+expression_plots_GO = YES
+expression_plots_PW = YES
+ann_out_db_used = uniref
+go_terms_association = proteins
+topN_exp_plots = 20
+maxLengthDescs_exp_plots = 50

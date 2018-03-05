@@ -1,0 +1,51 @@
+#File configuration for gea 0.1
+# It contains parameters that are used very often but very rarely by the user. 
+# We collected the parameters in RARELY CHANGED which means that an expert user can decide to change
+# and VERY RARELY CHANGED because it is very rare that an user wants to change
+# READ CAREFULLY!!!
+# This file has been written with a specific sintax. 
+# The variables MUST stay in the form: variable = value
+# A series of hashes (#########) closes the parameters to read
+# Parameters of BLAST programs without a value assigned will not be used
+# When you want to execute something you have to write YES (in upper case) or NO otherwise
+# other strings will give error.
+# THIS FILE SHOULD BE CHANGED ONLY IF YOU KNOW PERFECTLY WHAT YOU ARE DOING!!!
+
+##############################
+
+
+#names
+transcripts_filtered_list = transcripts_filtered_list.txt
+counts = counts.txt
+counts_filt_suffix = counts_filtered.txt
+de_transcripts = significant.txt
+transcripts_exp = expression
+
+#fixed parameters
+#Column with the count of reads mappend in counts.txt file
+#Default: 3 (as from samtools)
+column_with_count = 1
+
+#files
+gomap = USEFUL/go_map
+
+#suffixes
+bp_suffix = bp
+mf_suffix = mf
+cc_suffix = cc
+pwl1_suffix = pwl1
+pwl2_suffix = pwl2
+pwl3_suffix = pwl3
+
+#folders used
+up_down_folder = up_down_reg
+expression_plots_folder = expression_plots
+separator = ]---[
+
+#PROGRAMS
+get_counts_and_filter_sw = get_counts_and_filter.R
+de_analysis_sw = DE_analysis_generic.R
+go_enrichments_sw = GO_analysis_4.R
+pw_enrichments_sw = PW_analysis_1.R
+venn_diagrams_sw = venn_generic.R
+get_up_down_sw = get_up_and_down.R
